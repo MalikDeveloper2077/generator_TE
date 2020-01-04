@@ -58,11 +58,11 @@ def all_window_elements():
     generator = Generator()
     user_text = tk.Entry(root, width=40, font='Roboto 16', bg='#2e2d2d', fg='#fff', bd=0)
     user_text.pack(pady=30)
-    b1 = tk.Button(
+    generate_btn = tk.Button(
         text='Сгенерировать', command=generator.generate,
         bg='#2e2d2d', width=17, height=2, fg='#fff', font='Arial 20', bd=0
     )
-    b1.pack(pady=30)
+    generate_btn.pack(pady=30)
     output_text_label = tk.Text(root, height=5, font='Roboto 14', bg='#2e2d2d', fg='#fff', bd=0)
 
 
