@@ -59,7 +59,7 @@ def all_window_elements():
     user_text = tk.Entry(root, width=40, font='Roboto 16', bg='#2e2d2d', fg='#fff', bd=0)
     user_text.pack(pady=30)
     b1 = tk.Button(
-        text='Сгенирировать', command=generator.generate,
+        text='Сгенерировать', command=generator.generate,
         bg='#2e2d2d', width=17, height=2, fg='#fff', font='Arial 20', bd=0
     )
     b1.pack(pady=30)
