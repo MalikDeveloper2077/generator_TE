@@ -1,7 +1,8 @@
 from random import choice, randint
 import tkinter as tk
 
-# Constants
+
+# Window size constants
 WIDTH = 1200
 HEIGHT = 800
 
@@ -18,21 +19,23 @@ class Generator:
     ]
 
     def __new__(cls):
-        """ Singleton (class must have 1 object) """
+        """Singleton - class must have 1 object"""
         if not hasattr(cls, 'instance'):
             cls.instance = super().__new__(cls)
         return cls.instance
 
     @classmethod
     def get_empty_word(cls):
-        """ Get random word from _empty_list """
+        """Get random word from _empty_list"""
         return choice(cls._empty_words)
 
     def generate(self):
-        """ Take a list of the words,
-        Generate many TE (то есть) sentences
-        Insert words from _empty_list to output text
+        """Generate the stupid text.
+        
+        Take a list of words, generate many TE (то есть) sentences.
+        Insert the words from _empty_list into the output text
         And write the text in output_text_label
+        
         """
         sentence = user_text.get()
         many_sentences = (sentence + ' ') * randint(2, 3)
@@ -53,11 +56,13 @@ class Generator:
 
 
 def all_window_elements():
-    """ Generator obj and all labels, texts, entries, buttons """
+    """Generator obj and all labels, texts, entries, buttons"""
     global user_text, output_text_label
+    
     generator = Generator()
     user_text = tk.Entry(root, width=40, font='Roboto 16', bg='#2e2d2d', fg='#fff', bd=0)
     user_text.pack(pady=30)
+    
     generate_btn = tk.Button(
         text='Сгенерировать', command=generator.generate,
         bg='#2e2d2d', width=17, height=2, fg='#fff', font='Arial 20', bd=0
@@ -67,13 +72,13 @@ def all_window_elements():
 
 
 def main():
-    """ Settings """
+    """Settings"""
     global root
     root = tk.Tk()
     root.title('Generator TE')
     root.geometry(str(WIDTH) + 'x' + str(HEIGHT))
     root.configure(background='#212121')
-
+    
     all_window_elements()
     root.mainloop()
 
